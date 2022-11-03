@@ -1,32 +1,30 @@
 import { Button } from "@mui/material";
 import React, { useState } from "react";
-import { Link, useNavigate} from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 function Catalog({ imgUrl, id }) {
   const [showButton, setShowButton] = useState(false);
-  // console.log(setNft);
-  const navigate = useNavigate();
+
   const showBtn = () => {
     setShowButton(true);
   };
-  // const { postId } = useParams();
-  // console.log(postId);
+
   const closeBtn = () => {
     setShowButton(false);
   };
-  const inerpage = () => {
-    navigate(`/${id}`);
-  };
+
   return (
     <Container onMouseOver={showBtn} onMouseOut={closeBtn}>
       <DivBlock>
         <StyledImg src={imgUrl} alt="hh" />
-        <Link to={`/${id}`}>frefer</Link>
+
         {showButton && (
-          <Button onClick={inerpage} style={{ color: "white" }}>
-            Подробнее
-          </Button>
+          <BlockDiv>
+          <Link key={id} to={`/${id}`}>
+            <ButtonStlyle style={{ color: "white" }}>Подробнее</ButtonStlyle>
+          </Link>
+          </BlockDiv>
         )}
       </DivBlock>
     </Container>
@@ -55,3 +53,12 @@ const DivBlock = styled("div")`
   display: flex;
   flex-direction: column;
 `;
+
+const ButtonStlyle = styled(Button)`
+  color: white;
+  text-decoration: none;
+`;
+const BlockDiv = styled("div")`
+  display: flex;
+  justify-content: center;
+`

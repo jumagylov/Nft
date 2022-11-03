@@ -1,16 +1,14 @@
 // import styled from "styled-components";
 import styled from "@emotion/styled";
-// import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
 import { getNftData } from "../../store/slice/render";
 import Catalog from "../Catalog/Catalog";
 import Header from "../Header/Header";
 
 const card = 6;
 function Render() {
-  // const  {id}  = useParams();
+  // const { id } = useParams();
   // console.log(id);
   const data = useSelector((store) => store.rend.items);
   console.log(data);
@@ -52,7 +50,6 @@ function Render() {
           <div>
             <BlockImg>
               <Catalog imgUrl={i.image_url} />
-              <p>{i.id}</p>
             </BlockImg>
           </div>
         ))}

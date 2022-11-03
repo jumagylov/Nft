@@ -1,25 +1,20 @@
 import styled from "@emotion/styled";
-import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React from "react";
+import { useParams } from "react-router-dom";
+import Catalog from "../Catalog/Catalog";
 
 function InnerPage() {
-  const { id } = useParams();
-  const [post, setPost] = useState(null);
-  console.log(id);
-  // console.log(setPost);
+  const { postId } = useParams();
+  console.log(postId);
   return (
     <StyledB>
       <Cont>
-        <div>
-          {post && (
-            <>
-              <img src={id} alt="sfgfd" srcset="" />
-            <Link to={`${id}`}></Link>
-            </>
-          )}
-        </div>
         <Blockp>
+          <div style={{Button: "none"}}>
+            <img src={postId.image_url} alt="" />
+          </div>
           <StyledP>
+            ""id{postId}""
             Токены, в свою очередь, представляют собой запись в регистре внутри
             этой блокчейн-цепочки. Отличительной чертой большинства токенов
             является принцип взаимозаменяемости. Его можно сравнить с валютой (в
@@ -35,7 +30,7 @@ function InnerPage() {
 
 export default InnerPage;
 
-const StyledB = styled.body`
+const StyledB = styled.div`
   background: #1b1b36 !important;
   height: 750px;
   margin: 0 auto;
@@ -46,7 +41,6 @@ const Cont = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
 `;
 const StyledP = styled.p`
   color: white;
