@@ -6,12 +6,13 @@ import { Provider } from "react-redux";
 import store from "./store/slice";
 import { BrowserRouter } from "react-router-dom";
 
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
     </BrowserRouter>
   </Provider>
 );

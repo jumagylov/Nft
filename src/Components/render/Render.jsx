@@ -1,6 +1,5 @@
 // import styled from "styled-components";
 import styled from "@emotion/styled";
-import { Button } from "@mui/material";
 // import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,8 +10,8 @@ import Header from "../Header/Header";
 
 const card = 6;
 function Render() {
-  const { params } = useParams();
-  console.log(params);
+  // const  {id}  = useParams();
+  // console.log(id);
   const data = useSelector((store) => store.rend.items);
   console.log(data);
   const [nextCart, setNextCart] = useState(card);
@@ -24,12 +23,11 @@ function Render() {
   console.log(data);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getNftData(params));
-  }, [dispatch]);
+    dispatch(getNftData());
+  }, []);
 
   const seeMoreHandler = () => {
     setNextCart(card + nextCart);
-    console.log("werere");
   };
   // const [showButton, setShowButton] = useState(false);
   // const showBtn = () => {
@@ -54,6 +52,7 @@ function Render() {
           <div>
             <BlockImg>
               <Catalog imgUrl={i.image_url} />
+              <p>{i.id}</p>
             </BlockImg>
           </div>
         ))}

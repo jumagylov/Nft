@@ -1,25 +1,33 @@
 import { Button } from "@mui/material";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import styled from "styled-components";
 
-function Catalog({ imgUrl }) {
+function Catalog({ imgUrl, id }) {
   const [showButton, setShowButton] = useState(false);
-  const navigate  = useNavigate()
+  // console.log(setNft);
+  const navigate = useNavigate();
   const showBtn = () => {
     setShowButton(true);
   };
+  // const { postId } = useParams();
+  // console.log(postId);
   const closeBtn = () => {
     setShowButton(false);
   };
   const inerpage = () => {
-    navigate('/innerpage')
-  }
+    navigate(`/${id}`);
+  };
   return (
     <Container onMouseOver={showBtn} onMouseOut={closeBtn}>
       <DivBlock>
-        <StyledImg src={imgUrl} alt="hh" />;
-        {showButton && <Button onClick={inerpage} style={{ color: "white" }}>Подробнее</Button>}
+        <StyledImg src={imgUrl} alt="hh" />
+        <Link to={`/${id}`}>frefer</Link>
+        {showButton && (
+          <Button onClick={inerpage} style={{ color: "white" }}>
+            Подробнее
+          </Button>
+        )}
       </DivBlock>
     </Container>
   );
