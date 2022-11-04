@@ -49,7 +49,7 @@ function Render() {
         {data.slice(0, nextCart).map((i) => (
           <div>
             <BlockImg>
-              <Catalog imgUrl={i.image_url} />
+              <Catalog  id = {i.id} imgUrl={i.image_url} />
             </BlockImg>
           </div>
         ))}
@@ -84,6 +84,7 @@ const StyledButton = styled("Button")`
   border: none;
   color: white;
   padding-bottom: 20px;
+  margin-top: 20px;
 `;
 
 const BlockImg = styled.div`

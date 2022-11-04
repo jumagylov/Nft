@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
 import { useParams } from "react-router-dom";
-import Catalog from "../Catalog/Catalog";
 
 function InnerPage() {
   const { postId } = useParams();
