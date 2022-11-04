@@ -1,10 +1,16 @@
 import { Button } from "@mui/material";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import nftAction from "../../store/slice/render";
 
 function Catalog({ imgUrl, id }) {
   const [showButton, setShowButton] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const nextnft = () => dispatch(nftAction.getNftid({ id, img: imgUrl }));
 
   const showBtn = () => {
     setShowButton(true);
@@ -21,9 +27,11 @@ function Catalog({ imgUrl, id }) {
 
         {showButton && (
           <BlockDiv>
-          <Link key={id} to={`/${id}`}>
-            <ButtonStlyle style={{ color: "white" }}>Подробнее</ButtonStlyle>
-          </Link>
+            <Link key={id} to={`/${id}`}>
+              <ButtonStlyle style={{ color: "white" }} onClick={nextnft}>
+                Подробнее
+              </ButtonStlyle>
+            </Link>
           </BlockDiv>
         )}
       </DivBlock>
@@ -61,4 +69,4 @@ const ButtonStlyle = styled(Button)`
 const BlockDiv = styled("div")`
   display: flex;
   justify-content: center;
-`
+`;

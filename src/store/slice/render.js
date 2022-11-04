@@ -2,13 +2,17 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
    items: [],
+   singlenft: {},
 }
 export const addNftSlice = createSlice({
    name: 'render',
    initialState,
    reducers: {
+      getNftid: (state, action)=>{
+         state.singlenft = action.payload
+      },
       renderData(state, action) {
-        console.log(action);
+        console.log(action.payload.assets, "assets");
          state.items =  action.payload.assets
       },
    },

@@ -1,19 +1,18 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function InnerPage() {
-  const { postId } = useParams();
-  console.log(postId);
+  const nft = useSelector((i)=>i.rend?.singlenft)
   return (
     <StyledB>
       <Cont>
         <Blockp>
           <div style={{Button: "none"}}>
-            <img src={postId.image_url} alt="" />
+            <ImgStyled src={nft.img} alt="" />
           </div>
           <StyledP>
-            ""id{postId}""
+            ""id{nft.id}""
             Токены, в свою очередь, представляют собой запись в регистре внутри
             этой блокчейн-цепочки. Отличительной чертой большинства токенов
             является принцип взаимозаменяемости. Его можно сравнить с валютой (в

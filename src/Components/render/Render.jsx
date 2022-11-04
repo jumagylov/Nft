@@ -1,4 +1,3 @@
-// import styled from "styled-components";
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,8 +7,7 @@ import Header from "../Header/Header";
 
 const card = 6;
 function Render() {
-  // const { id } = useParams();
-  // console.log(id);
+
   const data = useSelector((store) => store.rend.items);
   console.log(data);
   const [nextCart, setNextCart] = useState(card);
@@ -27,13 +25,7 @@ function Render() {
   const seeMoreHandler = () => {
     setNextCart(card + nextCart);
   };
-  // const [showButton, setShowButton] = useState(false);
-  // const showBtn = () => {
-  //   setShowButton(true);
-  // };
-  // const closeBtn = () => {
-  //   setShowButton(false);
-  // };
+
   return (
     <Container>
       <Header />
@@ -49,7 +41,7 @@ function Render() {
         {data.slice(0, nextCart).map((i) => (
           <div>
             <BlockImg>
-              <Catalog  id = {i.id} imgUrl={i.image_url} />
+              <Catalog  id={i.id} imgUrl={i.image_url} />
             </BlockImg>
           </div>
         ))}
